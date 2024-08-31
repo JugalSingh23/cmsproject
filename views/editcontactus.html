@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="static/admin/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="static/admin/images/favicon.png" type="image/x-icon">
+    <title>viho - Premium Admin Template</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/fontawesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/feather-icon.css">
+    <!-- Plugins css start-->
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/style.css">
+    <link id="color" rel="stylesheet" href="static/admin/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="static/admin/css/responsive.css">
+  </head>
+  <body>
+    <!-- Loader starts-->
+    <div class="loader-wrapper">
+      <div class="theme-loader">    
+        <div class="loader-p"></div>
+      </div>
+    </div>
+    <!-- Loader ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-main-header">
+        <div class="main-header-right row m-0">
+          <div class="main-header-left">
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="static/admin/images/logo/logo.png" alt=""></a></div>
+            <div class="dark-logo-wrapper"><a href="index.html"><img class="img-fluid" src="static/admin/images/logo/dark-logo.png" alt=""></a></div>
+            <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
+          </div>
+          <div class="left-menu-header col">
+          
+          </div>
+          <div class="nav-right col pull-right right-menu p-0">
+            <ul class="nav-menus">
+              <li class="onhover-dropdown p-0">
+                <form action="/logout" method="POST">
+                  <button class="btn btn-primary-light" type="submit"><i data-feather="log-out"></i>Log out</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div class="d-lg-none mobile-toggle pull-right w-auto"><i data-feather="more-horizontal"></i></div>
+        </div>
+      </div>
+      <!-- Page Header Ends                              -->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper horizontal-menu">
+        <!-- Page Sidebar Start-->
+        <%- include('base/adminsidebar') %>
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3>Welcome Admin</h3>
+                  
+                </div>
+                <div class="col-sm-6">
+                  <!-- Bookmark Start-->
+                 
+                  <!-- Bookmark Ends-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header pb-0">
+                    <h5>Edit Contact Us</h5>
+                  </div>
+                  <div class="card-body">
+                    
+                    <% const phones = contactusdata.phone.split(',') %>
+                    <% const workhours = contactusdata.workhours.split(',') %>
+                    <% const workdays = contactusdata.workdays.split(',') %>
+
+                    <form id="form1" action="/editcontactus" method="POST">
+                      <div class="row g-3">
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom01">Address</label>
+                          <input class="form-control" id="address" name="address" type="text" value="<%=contactusdata.address%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">email 1</label>
+                          
+                          <input class="form-control" id="email1" name="email1" type="email" value="<%=emails[0]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">email 2</label>
+                          <input class="form-control" id="email2" name="email2" type="email" value="<%=emails[1]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="phone1">Phone 1</label>
+                          <input class="form-control" id="phone1" name="phone1" type="tel" pattern="\d{10,}" minlength="10" maxlength="14" inputmode="numeric" value="<%= phones[0] %>" required
+                                 title="Please enter a valid phone number with at least 10 digits.">
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please enter a valid phone number with at least 10 digits and less than 14 digits.</div>
+                      </div>
+                      
+                      <div class="col-md-4">
+                          <label class="form-label" for="phone2">Phone 2</label>
+                          <input class="form-control" id="phone2" name="phone2" type="tel" pattern="\d{10,}" minlength="10" maxlength="14" inputmode="numeric" value="<%= phones[1] %>" required
+                                 title="Please enter a valid phone number with at least 10 digits.">
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please enter a valid phone number with at least 10 digits and less than 14 digits.</div>
+                      </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">Beginning Work Hour</label>
+                          <input class="form-control" id="workhourstart" name="workhourstart" type="text" maxlength="5" value="<%=workhours[0]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">Ending Work Hour</label>
+                          <input class="form-control" id="workhourend" name="workhourend" type="text" maxlength="5" value="<%=workhours[1]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">Beginning Work Day</label>
+                          <input class="form-control" id="workdaystart" name="workdaystart" type="text" value="<%=workdays[0]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label" for="validationCustom02">Ending Work Day</label>
+                          <input class="form-control" id="workdayend" name="workdayend" type="text" value="<%=workdays[1]%>" required="">
+                          <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                      <button class="btn btn-primary" type="submit" id="submitter">Submit form</button>
+                    </form>
+                  </div>
+                </div>
+               
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 footer-copyright">
+                <p class="mb-0">Copyright 2021-22 © viho All rights reserved.</p>
+              </div>
+              <div class="col-md-6">
+                <p class="pull-right mb-0">Hand crafted & made with <i class="fa fa-heart font-secondary"></i></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+      axios.get('/editcontactusapi')
+        .then(function (response) {
+          // handle success
+          console.log(response.data);
+
+          const addressinput = document.querySelector("#address")
+          addressinput.value=`${response.data.address}`
+
+          //emails
+          const emails = response.data.email.split(',')
+
+          const email1input = document.querySelector("#email1")
+          email1input.value=`${emails[0]}`
+          const email2input = document.querySelector("#email2")
+          email2input.value=`${emails[1]}`
+
+          //phones
+          const phones = response.data.phone.split(',')
+
+          const phone1input = document.querySelector("#phone1")
+          phone1input.value=`${phones[0]}`
+          const phone2input = document.querySelector("#phone2")
+          phone2input.value=`${phones[1]}`
+
+          //work hours
+
+          const workhours = response.data.workhours.split(',')
+
+          const workhourstartinput = document.querySelector("#workhourstart")
+          workhourstartinput.value=`${workhours[0]}`
+          const workhourend = document.querySelector("#workhourend")
+          workhourend.value=`${workhours[1]}`
+
+          //work days
+          const workdays= response.data.workdays.split(',')
+
+          const workdaystartinput = document.querySelector("#workdaystart")
+          workdaystartinput.value=`${workdays[0]}`
+          const workdayendinput = document.querySelector("#workdayend")
+          workdayendinput.value=`${workdays[1]}`
+
+
+
+
+          
+
+
+          
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+
+        document.getElementById('submitter').addEventListener('click',
+                async function (event) {
+
+                  // Handle the form data
+                  event.preventDefault();
+                  var bodyFormData = new FormData();
+                  const addressinput = document.getElementById("address").value
+
+                  const email1input = document.getElementById("email1").value
+                  const email2input = document.getElementById("email2").value
+
+                  const phone1input = document.getElementById("phone1").value
+                  const phone2input = document.getElementById("phone2").value
+
+                  const workhourstartinput = document.getElementById("workhourstart").value
+                  const workhourendinput = document.getElementById("workhourend").value
+
+                  const workdaystartinput = document.getElementById("workdaystart").value
+                  const workdayendinput = document.getElementById("workdayend").value
+
+
+                  if (addressinput.length < 1 || email1input.length < 1 || email2input.length < 1 || phone1input.length < 1 || phone2input.length < 1 || workhourstartinput.length < 1 || workhourendinput.length < 1 || workdaystartinput.length < 1 || workdayendinput.length < 1  ) {
+                    alert("Please don't leave any fields empty");
+                  }
+                  
+                  else {
+
+                    const data = {
+                      address : addressinput,
+
+                      email1 : email1input,
+                      email2 : email2input,
+
+                      phone1 : phone1input,
+                      phone2 : phone2input,
+
+                      workhourstart : workhourstartinput,
+                      workhourend : workhourendinput,
+
+                      workdaystart : workdaystartinput,
+                      workdayend : workdayendinput,
+
+                    }
+
+                    // bodyFormData.append('address', addressinput);
+                    // console.log(addressinput)
+                    // bodyFormData.append('email1', email1input);
+                    // bodyFormData.append('email2', email2input);
+
+                    // bodyFormData.append('phone1', phone1input);
+                    // bodyFormData.append('phone2', phone2input);
+
+                    // bodyFormData.append('workhourstart', workhourstartinput);
+                    // bodyFormData.append('workhourend', workhourendinput);
+
+                    // bodyFormData.append('workdaystart', workdaystartinput);
+                    // bodyFormData.append('workdayend', workdayendinput);
+
+                   
+
+
+                    // Send a POST request
+                    await axios.post(`/editcontactus`, data);
+
+
+                    window.location.href = '/editcontactus';
+                  }
+
+                })
+      </script>
+
+    <!-- latest jquery-->
+    <script src="static/admin/js/jquery-3.5.1.min.js"></script>
+    <!-- feather icon js-->
+    <script src="static/admin/js/icons/feather-icon/feather.min.js"></script>
+    <script src="static/admin/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="static/admin/js/sidebar-menu.js"></script>
+    <script src="static/admin/js/config.js"></script>
+    <!-- Bootstrap js-->
+    <script src="static/admin/js/bootstrap/popper.min.js"></script>
+    <script src="static/admin/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugins JS start-->
+    <script src="static/admin/js/form-validation-custom.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="static/admin/js/script.js"></script>
+    <script src="static/admin/js/theme-customizer/customizer.js"></script>
+    <!-- login js-->
+    <!-- Plugin used-->
+  </body>
+</html>
